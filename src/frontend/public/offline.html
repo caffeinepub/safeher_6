@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeHer India — Offline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #0f0a1e;
+      color: #f0f0f0;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container { max-width: 400px; }
+    .shield {
+      width: 80px;
+      height: 80px;
+      background: rgba(225, 29, 116, 0.15);
+      border: 2px solid rgba(225, 29, 116, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    p { color: #a0a0b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .emergency {
+      background: rgba(225, 29, 116, 0.1);
+      border: 1px solid rgba(225, 29, 116, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    .emergency h2 { font-size: 0.85rem; margin-bottom: 0.5rem; color: #e11d74; }
+    .num { font-size: 1.5rem; font-weight: bold; color: #fff; }
+    .num a { color: inherit; text-decoration: none; }
+    button {
+      background: #e11d74;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="shield">🛡️</div>
+    <h1>You're Offline</h1>
+    <p>
+      SafeHer India requires an internet connection for live features.
+      In an emergency, call the national helplines below.
+    </p>
+    <button onclick="window.location.reload()">Try Again</button>
+    <div class="emergency">
+      <h2>Emergency Helplines (Always Work)</h2>
+      <div class="num"><a href="tel:112">112</a></div>
+      <p style="margin: 0.25rem 0; font-size: 0.75rem;">National Emergency</p>
+      <div class="num" style="margin-top: 0.75rem;"><a href="tel:1091">1091</a></div>
+      <p style="margin: 0; font-size: 0.75rem;">Women Helpline</p>
+    </div>
+  </div>
+</body>
+</html>

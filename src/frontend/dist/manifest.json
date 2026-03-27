@@ -1,0 +1,20 @@
+{
+  "name": "SafeHer India",
+  "short_name": "SafeHer",
+  "description": "Your Personal Women Safety Companion",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0a1e",
+  "theme_color": "#e11d74",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/generated/safeher-logo-transparent.dim_256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["safety", "utilities"],
+  "lang": "en"
+}

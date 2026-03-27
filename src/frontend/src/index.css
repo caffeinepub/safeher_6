@@ -1,0 +1,250 @@
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@layer base {
+  /* Light mode */
+  :root {
+    --radius: 1rem;
+    --background: 0.97 0.005 285;
+    --foreground: 0.12 0.02 285;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.02 285;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.02 285;
+    --primary: 0.56 0.24 355;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.94 0.01 285;
+    --secondary-foreground: 0.3 0.04 285;
+    --muted: 0.94 0.01 285;
+    --muted-foreground: 0.5 0.02 285;
+    --accent: 0.45 0.26 291;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.56 0.24 355;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.9 0.008 285;
+    --input: 0.9 0.008 285;
+    --ring: 0.56 0.24 355;
+    --safe: 0.54 0.155 143;
+    --safe-foreground: 0.99 0 0;
+    --warning: 0.66 0.17 83;
+    --warning-foreground: 0.15 0.02 80;
+    --danger: 0.56 0.24 355;
+    --chart-1: 0.56 0.24 355;
+    --chart-2: 0.54 0.155 143;
+    --chart-3: 0.66 0.17 83;
+    --chart-4: 0.45 0.26 291;
+    --chart-5: 0.6 0.18 200;
+    --sidebar: 0.99 0.003 285;
+    --sidebar-foreground: 0.12 0.02 285;
+    --sidebar-primary: 0.56 0.24 355;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.94 0.01 285;
+    --sidebar-accent-foreground: 0.3 0.04 285;
+    --sidebar-border: 0.9 0.008 285;
+    --sidebar-ring: 0.56 0.24 355;
+  }
+
+  /* Dark mode */
+  .dark {
+    --radius: 1rem;
+    --background: 0.09 0.03 285;
+    --foreground: 0.96 0.005 280;
+    --card: 0.13 0.025 280;
+    --card-foreground: 0.96 0.005 280;
+    --popover: 0.15 0.028 280;
+    --popover-foreground: 0.96 0.005 280;
+    --primary: 0.56 0.24 355;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.22 0.03 270;
+    --secondary-foreground: 0.85 0.01 280;
+    --muted: 0.22 0.03 270;
+    --muted-foreground: 0.6 0.015 280;
+    --accent: 0.45 0.26 291;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.56 0.24 355;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.28 0.025 270;
+    --input: 0.28 0.025 270;
+    --ring: 0.56 0.24 355;
+    --safe: 0.54 0.155 143;
+    --safe-foreground: 0.99 0 0;
+    --warning: 0.66 0.17 83;
+    --warning-foreground: 0.15 0.02 80;
+    --danger: 0.56 0.24 355;
+    --chart-1: 0.56 0.24 355;
+    --chart-2: 0.54 0.155 143;
+    --chart-3: 0.66 0.17 83;
+    --chart-4: 0.6 0.18 291;
+    --chart-5: 0.75 0.12 200;
+    --sidebar: 0.11 0.025 280;
+    --sidebar-foreground: 0.96 0.005 280;
+    --sidebar-primary: 0.56 0.24 355;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.22 0.03 270;
+    --sidebar-accent-foreground: 0.85 0.01 280;
+    --sidebar-border: 0.28 0.025 270;
+    --sidebar-ring: 0.56 0.24 355;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    oklch(0.56 0.24 355),
+    oklch(0.45 0.26 291)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero gradient background */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.09 0.04 285) 0%,
+    oklch(0.12 0.06 310) 50%,
+    oklch(0.09 0.04 285) 100%
+  );
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Override for animations that shouldn't have transition */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+@keyframes sos-ring {
+  from {
+    stroke-dashoffset: 251;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.sos-progress circle {
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+  animation: sos-ring 3s linear forwards;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+@keyframes siren-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px oklch(0.56 0.24 355 / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 60px oklch(0.56 0.24 355 / 0.9), 0 0 120px
+      oklch(0.56 0.24 355 / 0.4);
+  }
+}
+
+.siren-active {
+  animation: siren-pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes ring-anim {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+}
+
+.ringing {
+  animation: ring-anim 0.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+.bottom-nav-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.leaflet-container {
+  background: oklch(0.12 0.018 280);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--border));
+  border-radius: 4px;
+}
